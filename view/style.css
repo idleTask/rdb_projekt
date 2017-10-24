@@ -1,4 +1,23 @@
 h1 {
 	text-align: center;
 	color: black;
+	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+	font-variant: small-caps;
+	text-decoration: underline;
+	
+}
+header{
+	margin-bottom:50px;
+	height: 7em;
+	width:100em;
+}
+
+h2 {
+	
+	text-align: center;
+	color: black;
+	margin-top: 50px;
+	
+	
+	
 }
