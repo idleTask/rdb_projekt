@@ -1,4 +1,4 @@
-var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
         var color = Chart.helpers.color;
         var horizontalBarChartData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -11,23 +11,16 @@ var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "A
                     10,
                     20
                 ]
-            }, {
-                label: 'Dataset 2',
-                backgroundColor: color('blue').alpha(0.5).rgbString(),
-                borderColor: 'blue',
-                data: [
-                    5,
-                    23,
-                    23,
-                    23,
-                    15
-                ]
+            
             }]
 
         };
-
+        var titleText = "Energieverbrauch";
+        var bool = false;
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
+            
+           
             window.myHorizontalBar = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: horizontalBarChartData,
@@ -45,9 +38,21 @@ var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "A
                     },
                     title: {
                         display: true,
-                        text: 'Chart.js Horizontal Bar Chart'
+                        text: titleText
                     }
                 }
             });
 
         };
+
+        document.getElementById('auswahl').addEventListener('click', function() {
+            bool = !bool;
+            if (bool) {
+                myHorizontalBar.options.title.text = "CO2-Emission";
+                horizontalBarChartData.datasets[0].data = [50,505,12,23,23];
+            } else {
+                myHorizontalBar.options.title.text = "Energieverbrauch";
+            }
+            
+            window.myHorizontalBar.update();
+        });

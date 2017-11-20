@@ -79,7 +79,7 @@
       <script src="..\dist\Chart.js"></script>
       <script src="..\dist\Chart.min.js"></script>
       <script src="..\dist\Chart.bundle.min.js"></script>
-      <div style="width:75%;">
+      <div style="height:100%;">
         <canvas id="canvas"></canvas>
       </div>
     <script src="..\js\chart1.js"></script>
