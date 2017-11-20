@@ -73,6 +73,18 @@
 </div>
 		
 		</header>
+    
+    <div>
+      <script src="..\dist\Chart.bundle.js"></script>
+      <script src="..\dist\Chart.js"></script>
+      <script src="..\dist\Chart.min.js"></script>
+      <script src="..\dist\Chart.bundle.min.js"></script>
+      <div style="width:75%;">
+        <canvas id="canvas"></canvas>
+      </div>
+    <script src="..\js\chart1.js"></script>
+    </div>
+
 
 		<script src="..\js\seite1.js"></script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
