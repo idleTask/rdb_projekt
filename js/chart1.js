@@ -1,7 +1,7 @@
 
         var color = Chart.helpers.color;
         var horizontalBarChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Erz.d. Landwirtschaft u. Jagd sowie damit verb. DL", "Forstwirtschaftl. Erzeugnisse und Dienstleistungen", "Fische und Fischereierz., Aquakulturerz., DL", "Kohle", "Erdöl und Erdgas", "Erze, Steine und Erden, sonstige Bergbauerz., DL", "Nahrungs- u. Futtermittel, Getränke, Tabakerzeugn.", "Textilien, Bekleidung, Leder und Lederwaren", "Holz,Holz- u.Korkwaren (oh.Möbel),Flecht- u.Korbw.", "Papier, Pappe und Waren daraus", "DL d.Vervielf. v. besp.Ton-, Bild- u. Datenträgern", "Kokerei- und Mineralölerzeugnisse", " " , " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
             datasets: [{
                 label: 'Dataset 1',
                 backgroundColor: color('red').alpha(0.5).rgbString(),
@@ -11,7 +11,6 @@
                     10,
                     20
                 ]
-            
             }]
 
         };
@@ -49,7 +48,7 @@
             bool = !bool;
             if (bool) {
                 myHorizontalBar.options.title.text = "CO2-Emission";
-                horizontalBarChartData.datasets[0].data = [50,505,12,23,23];
+                horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
             } else {
                 myHorizontalBar.options.title.text = "Energieverbrauch";
             }
