@@ -7,15 +7,12 @@
                 backgroundColor: color('red').alpha(0.5).rgbString(),
                 borderColor: 'red',
                 borderWidth: 1,
-                data: [
-                    10,
-                    20
-                ]
+                data: [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]
             }]
 
         };
         var titleText = "Energieverbrauch";
-        var bool = false;
+        
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
             
@@ -45,21 +42,26 @@
 
         };
 
-        document.getElementById('auswahl').addEventListener('click', function() {
-            bool = !bool;
-            if (bool) {
-                myHorizontalBar.options.title.text = "CO2-Emission";
-                horizontalBarChartData.datasets[0].label = "CO2-Emission";
-                horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
-            } else {
+        document.getElementById('option1').addEventListener('click', function() {
+            
+            
+                
+            
                 myHorizontalBar.options.title.text = "Energieverbrauch";
                 horizontalBarChartData.datasets[0].label = "Energieverbrauch";
-                horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);
-            }
+                horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);            
+                window.myHorizontalBar.update();
             
-            window.myHorizontalBar.update();
+                
         });
-
+        document.getElementById('option2').addEventListener('click', function() {
+                myHorizontalBar.options.title.text = "CO2-Emission";
+                horizontalBarChartData.datasets[0].label = "CO2-Emission";
+                horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);
+                window.myHorizontalBar.update();
+        });
+      
+        
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 

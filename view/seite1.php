@@ -33,10 +33,10 @@
 			
 <div id="auswahl">
 	<div class="btn-group" data-toggle="buttons">
-  		<label class="btn btn-primary active">
-    	<input type="radio" name="options" id="option1" autocomplete="off" checked>Energieverbrauch
+  		<label class="btn btn-primary active" id="option1">
+      	<input type="radio" name="options" id="option1" autocomplete="off" checked>Energieverbrauch
   		</label>
-  		<label class="btn btn-primary">
+  		<label class="btn btn-primary" id="option2">
    		<input type="radio" name="options" id="option2" autocomplete="off"> CO2-Emission
   		</label>
 	</div>
