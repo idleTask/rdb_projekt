@@ -32,18 +32,47 @@
 			
 			
 <div id="auswahl">
-	<div class="btn-group" data-toggle="buttons">
-  		<label class="btn btn-primary active">
-    	<input type="radio" name="options" id="option1" autocomplete="off" checked>Energieverbrauch
+	
+  		<label class="btn btn-primary">
+    	<input type="checkbox" name="options" id="option1" autocomplete="off" checked data-toggle="toggle">Energieverbrauch
   		</label>
   		<label class="btn btn-primary">
-   		<input type="radio" name="options" id="option2" autocomplete="off"> CO2-Emission
+   		<input type="checkbox" name="options" id="option2" autocomplete="off" data-toggle="toggle"> CO2-Emission
   		</label>
-	</div>
+	
 </div>
 
 
 <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Jahr
+  </button>
+  <label id="jahrLabel">Ausgewähltes Jahr: </label>
+  <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">1995</button>
+    <button class="dropdown-item" type="button">1996</button>
+    <button class="dropdown-item" type="button">1997</button>
+    <button class="dropdown-item" type="button">1998</button>
+    <button class="dropdown-item" type="button">1999</button>
+    <button class="dropdown-item" type="button">2000</button>
+    <button class="dropdown-item" type="button">2001</button>
+    <button class="dropdown-item" type="button">2002</button>
+    <button class="dropdown-item" type="button">2003</button>
+    <button class="dropdown-item" type="button">2004</button>
+    <button class="dropdown-item" type="button">2005</button>
+    <button class="dropdown-item" type="button">2006</button>
+    <button class="dropdown-item" type="button">2007</button>
+    <button class="dropdown-item" type="button">2008</button>
+    <button class="dropdown-item" type="button">2009</button>
+    <button class="dropdown-item" type="button">2010</button>
+    <button class="dropdown-item" type="button">2011</button>
+    <button class="dropdown-item" type="button">2012</button>
+    <button class="dropdown-item" type="button">2013</button>
+    <button class="dropdown-item" type="button">2014</button>
+  </div>
+</div>
+		
+		<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Jahr
   </button>
