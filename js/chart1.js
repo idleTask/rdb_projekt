@@ -3,7 +3,7 @@
         var horizontalBarChartData = {
             labels: ["Erz.d. Landwirtschaft u. Jagd sowie damit verb. DL", "Forstwirtschaftl. Erzeugnisse und Dienstleistungen", "Fische und Fischereierz., Aquakulturerz., DL", "Kohle", "Erdöl und Erdgas", "Erze, Steine und Erden, sonstige Bergbauerz., DL", "Nahrungs- u. Futtermittel, Getränke, Tabakerzeugn.", "Textilien, Bekleidung, Leder und Lederwaren", "Holz,Holz- u.Korkwaren (oh.Möbel),Flecht- u.Korbw.", "Papier, Pappe und Waren daraus", "DL d.Vervielf. v. besp.Ton-, Bild- u. Datenträgern", "Kokerei- und Mineralölerzeugnisse", " " , " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
             datasets: [{
-                label: 'Dataset 1',
+                label: 'Energieverbrauch',
                 backgroundColor: color('red').alpha(0.5).rgbString(),
                 borderColor: 'red',
                 borderWidth: 1,
@@ -35,6 +35,7 @@
                     legend: {
                         position: 'right',
                     },
+                    legend: false,
                     title: {
                         display: true,
                         text: titleText
@@ -48,10 +49,32 @@
             bool = !bool;
             if (bool) {
                 myHorizontalBar.options.title.text = "CO2-Emission";
+                horizontalBarChartData.datasets[0].label = "CO2-Emission";
                 horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
             } else {
                 myHorizontalBar.options.title.text = "Energieverbrauch";
+                horizontalBarChartData.datasets[0].label = "Energieverbrauch";
+                horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);
             }
             
             window.myHorizontalBar.update();
         });
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
