@@ -1,15 +1,15 @@
 var config = {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015"],
                 datasets: [{
-                    label: "My First dataset",
+                    label: "1. Produktionsbereich",
                     backgroundColor: 'red',
                     borderColor: 'red',
                     data: [10, 30, 39, 20, 25, 34, -10],
                     fill: false,
                 }, {
-                    label: "My Second dataset",
+                    label: "2.Produktionsbereich",
                     fill: false,
                    	backgroundColor: 'blue',
                     borderColor: 'blue',
@@ -20,7 +20,7 @@ var config = {
                 responsive: true,
                 title:{
                     display:true,
-                    text:'Min and Max Settings'
+                    text:'Vergleich der Produktionsbereiche'
                 },
                 scales: {
                     yAxes: [{

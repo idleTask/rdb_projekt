@@ -45,9 +45,9 @@
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Jahr
+    Produktionsbereich 1
   </button>
-  <label id="jahrLabel">Ausgewähltes Jahr: </label>
+
   <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button">1995</button>
     <button class="dropdown-item" type="button">1996</button>
@@ -74,9 +74,9 @@
 		
 		<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Jahr
+    Produktionsbereich 2
   </button>
-  <label id="jahrLabel">Ausgewähltes Jahr: </label>
+
   <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button">1995</button>
     <button class="dropdown-item" type="button">1996</button>
