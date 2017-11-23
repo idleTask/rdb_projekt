@@ -45,13 +45,13 @@
         };
 
         document.getElementById('option1').addEventListener('click', function() {
-                myHorizontalBar.options.title.text = "Energieverbrauch";
+                myHorizontalBar.options.title.text = "Energieverbrauch in TJ";
                 horizontalBarChartData.datasets[0].label = "Energieverbrauch";
                 horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);            
                 window.myHorizontalBar.update();              
         });
         document.getElementById('option2').addEventListener('click', function() {
-                myHorizontalBar.options.title.text = "CO2-Emission";
+                myHorizontalBar.options.title.text = "CO2-Emission in in t";
                 horizontalBarChartData.datasets[0].label = "CO2-Emission";
                 horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
                 window.myHorizontalBar.update();
