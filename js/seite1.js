@@ -1,9 +1,9 @@
-//holt alle Buttons aus dem dropdown menue, beim klick wird der buttontext im label gespeichert
+//holt alle Buttons aus dem dropdown menue, beim klick wird der buttontext zum ausgewählten jahr
 var ddButtons = document.querySelectorAll('div.dropdown-menu button');
-var label = document.getElementById("jahrLabel");
+var dropdownMenu2 = document.getElementById("dropdownMenu2");
 for (let i = 0; i < ddButtons.length; i++){
 	ddButtons[i].id = i;
 	ddButtons[i].onclick = function(){
-		label.innerHTML = "Ausgewähltes Jahr: " + ddButtons[i].innerHTML;
+		dropdownMenu2.innerHTML = ddButtons[i].innerHTML;
 	}
 }

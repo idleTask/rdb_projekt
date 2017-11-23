@@ -47,7 +47,7 @@
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Jahr
   </button>
-  <label id="jahrLabel">Ausgewähltes Jahr: </label>
+  
   <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button">1995</button>
     <button class="dropdown-item" type="button">1996</button>
@@ -71,7 +71,7 @@
     <button class="dropdown-item" type="button">2014</button>
   </div>
 </div>
-		
+
 		</header>
     
     <div>
@@ -79,7 +79,7 @@
       <script src="..\dist\Chart.js"></script>
       <script src="..\dist\Chart.min.js"></script>
       <script src="..\dist\Chart.bundle.min.js"></script>
-      <div style="height:100%;">
+      <div class="chart-container">
         <canvas id="canvas"></canvas>
       </div>
     <script src="..\js\chart1.js"></script>

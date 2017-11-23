@@ -20,14 +20,17 @@
             window.myHorizontalBar = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: horizontalBarChartData,
+                
                 options: {
                     // Elements options apply to all of the options unless overridden in a dataset
                     // In this case, we are setting the border of each horizontal bar to be 2px wide
+                    maintainAspectRatio: false,
                     elements: {
                         rectangle: {
                             borderWidth: 2,
                         }
                     },
+                 
                     responsive: true,
                     legend: {
                         position: 'right',
@@ -39,20 +42,13 @@
                     }
                 }
             });
-
         };
 
         document.getElementById('option1').addEventListener('click', function() {
-            
-            
-                
-            
                 myHorizontalBar.options.title.text = "Energieverbrauch";
                 horizontalBarChartData.datasets[0].label = "Energieverbrauch";
                 horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);            
-                window.myHorizontalBar.update();
-            
-                
+                window.myHorizontalBar.update();              
         });
         document.getElementById('option2').addEventListener('click', function() {
                 myHorizontalBar.options.title.text = "CO2-Emission";

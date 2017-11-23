@@ -7,6 +7,12 @@ h1 {
 	
 }
 
+.chart-container {
+  position: relative;
+  margin-top: 100px;
+  height: 300vh;
+  width: 80vw;
+}
 body {
 	margin-left: 10%;
 	margin-right: 10%;
@@ -15,6 +21,10 @@ header{
 	margin-bottom:50px;
 	height: 7em;
 	
+}
+#dropdownMenu2{
+	color: red;
+	margin: auto;
 }
 
 h2 {
