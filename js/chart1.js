@@ -11,7 +11,7 @@
             }]
 
         };
-        var titleText = "Energieverbrauch";
+        var titleText = "Energieverbrauch in TJ";
         
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
@@ -51,7 +51,7 @@
                 window.myHorizontalBar.update();              
         });
         document.getElementById('option2').addEventListener('click', function() {
-                myHorizontalBar.options.title.text = "CO2-Emission in in t";
+                myHorizontalBar.options.title.text = "CO2-Emission in t";
                 horizontalBarChartData.datasets[0].label = "CO2-Emission";
                 horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
                 window.myHorizontalBar.update();
