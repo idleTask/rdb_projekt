@@ -34,5 +34,5 @@ echo '</div>';
 //}
 
 
-echo json_encode($energieverbräuche);
+//echo json_encode($energieverbräuche);
 ?>

@@ -44,12 +44,12 @@
 
 
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="c" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Jahr
   </button>
   
   <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" id="ddM1">1995</button>
+    <button class="dropdown-item" type="button">1995</button>
     <button class="dropdown-item" type="button">1996</button>
     <button class="dropdown-item" type="button">1997</button>
     <button class="dropdown-item" type="button">1998</button>

@@ -1,5 +1,6 @@
 <?php include "../model/model.php" ?>
 <?php include "../model/model2.php" ?>
+<?php include "../model/model3.php" ?>
 <script>
     //alle Produktionsbereiche
     var produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
@@ -8,7 +9,8 @@
     var energieverbräuche = <?php echo json_encode($energieverbräuche);  ?>;
     energieverbräuche.shift();
     //todo: Co2Emission
-
+    var emissionen = <?php echo json_encode($emissionen);  ?>;
+    emissionen.shift();
     //default chart text
     var titleText = "Energieverbrauch in TJ";
     //default jahr
@@ -17,6 +19,7 @@
    var ddButtons = document.querySelectorAll('div.dropdown-menu button');
    var dropdownMenu2 = document.getElementById("dropdownMenu2");
 
+   
     
     var color = Chart.helpers.color;
     var horizontalBarChartData = {
@@ -26,7 +29,7 @@
                 backgroundColor: color('red').alpha(0.5).rgbString(),
                 borderColor: 'red',
                 borderWidth: 1,
-                data: [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]
+                data: []
             }]
 
         };
@@ -62,27 +65,42 @@
             }
         });
     };
-
+    var energie = true;
     document.getElementById('option1').addEventListener('click', function() {
+            energie = true;
             myHorizontalBar.options.title.text = "Energieverbrauch in TJ";
             horizontalBarChartData.datasets[0].label = "Energieverbrauch";
-            horizontalBarChartData.datasets[0].data = shuffle([16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ]);            
+                     
             window.myHorizontalBar.update();              
     });
     document.getElementById('option2').addEventListener('click', function() {
+            energie = false;
             myHorizontalBar.options.title.text = "CO2-Emission in t";
             horizontalBarChartData.datasets[0].label = "CO2-Emission";
-            horizontalBarChartData.datasets[0].data = [16703713,490989,54261,2922596,2936879,1747172, 11382259,2423522, 5497788,11198845,650741,24672289, ];
             window.myHorizontalBar.update();
     });
         
     //dropdown button function
+    console.log("button lenght: " + ddButtons.length);
     for (let i = 0; i < ddButtons.length; i++){
         ddButtons[i].id = i;
         ddButtons[i].onclick = function(){
+
             jahr = ddButtons[i].innerHTML;
+            dropdownMenu2.innerHTML = jahr;
             //todo: daten anpassen
-           
+            var data = [];
+            if (energie){
+                for (i = 0; i < energieverbräuche.length; i++){
+                    data.push(energieverbräuche[i]["Jahr_" + jahr]);  
+                }
+            } else if (!energie){
+                for (i = 0; i < emissionen.length; i++){
+                    data.push(emissionen[i]["Jahr_" + jahr]);  
+                }
+            }
+            horizontalBarChartData.datasets[0].data = data;
+            window.myHorizontalBar.update();
         }
     }
         
