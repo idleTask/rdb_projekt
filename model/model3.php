@@ -34,5 +34,4 @@ echo '</div>';
 //}
 
 
-echo json_encode($emissionen);
 ?>
