@@ -13,14 +13,12 @@
     emissionen.shift();
     //default chart text
     var titleText = "Energieverbrauch in TJ";
-    //default jahr
-    var jahr = 1995;
    //dropdownmenu buttons und dropdownmenu
    var ddButtons = document.querySelectorAll('div.dropdown-menu button');
    var dropdownMenu2 = document.getElementById("dropdownMenu2");
 
-   
-    
+    var data = [];
+    var jahr;
     var color = Chart.helpers.color;
     var horizontalBarChartData = {
             labels: produktionsbereiche,
@@ -70,33 +68,46 @@
             energie = true;
             myHorizontalBar.options.title.text = "Energieverbrauch in TJ";
             horizontalBarChartData.datasets[0].label = "Energieverbrauch";
-                     
+            data = [];
+            for (let j = 0; j < energieverbräuche.length; j++){
+                    data.push(energieverbräuche[j]["Jahr_" + jahr]);  
+            }
+            horizontalBarChartData.datasets[0].data = data;
             window.myHorizontalBar.update();              
     });
     document.getElementById('option2').addEventListener('click', function() {
             energie = false;
             myHorizontalBar.options.title.text = "CO2-Emission in t";
             horizontalBarChartData.datasets[0].label = "CO2-Emission";
+            data = [];
+            for (let k = 0; k < emissionen.length; k++){
+                    data.push(emissionen[k]["Jahr_" + jahr]);  
+            }
+            horizontalBarChartData.datasets[0].data = data;
             window.myHorizontalBar.update();
     });
         
     //dropdown button function
-    console.log("button lenght: " + ddButtons.length);
+    
     for (let i = 0; i < ddButtons.length; i++){
         ddButtons[i].id = i;
+        
         ddButtons[i].onclick = function(){
-
+            console.log("button lenght: " + ddButtons[i]);
             jahr = ddButtons[i].innerHTML;
+            
             dropdownMenu2.innerHTML = jahr;
             //todo: daten anpassen
-            var data = [];
+            data = [];
             if (energie){
-                for (i = 0; i < energieverbräuche.length; i++){
-                    data.push(energieverbräuche[i]["Jahr_" + jahr]);  
+                console.log("energie daten");
+                for (let j = 0; j < energieverbräuche.length; j++){
+                    data.push(energieverbräuche[j]["Jahr_" + jahr]);  
                 }
             } else if (!energie){
-                for (i = 0; i < emissionen.length; i++){
-                    data.push(emissionen[i]["Jahr_" + jahr]);  
+                console.log("co2 daten");
+                for (let k = 0; k < emissionen.length; k++){
+                    data.push(emissionen[k]["Jahr_" + jahr]);  
                 }
             }
             horizontalBarChartData.datasets[0].data = data;
@@ -106,24 +117,6 @@
         
       
         
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
 
 
 
