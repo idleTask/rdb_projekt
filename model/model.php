@@ -26,7 +26,8 @@ if ($result->num_rows > 0) {
 }
 
 echo '<div id=data>';
-	
+
+echo json_encode($rows);
 echo '</div>';
 $produktionsbereiche = array();
 foreach($rows as $result) {
@@ -35,14 +36,10 @@ foreach($rows as $result) {
 } 
 
 
-print_r ($produktionsbereiche);
-echo $produktionsbereiche[1];
+
 ?> 
 <script>
 	
-	var rows = <?php echo json_encode($produktionsbereiche);  ?>;
-	rows.shift();
-	console.log(rows);
 </script>
 
 
