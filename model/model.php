@@ -28,13 +28,21 @@ if ($result->num_rows > 0) {
 echo '<div id=data>';
 	
 echo '</div>';
-?> 
-<script language="Javascript" type="text/javascript">
+$produktionsbereiche = array();
+foreach($rows as $result) {
+				//echo $result['Produktionsbereich'];
+				$produktionsbereiche[] = $result['Produktionsbereich'];
+} 
 
-  var jsvar = '<?php echo json_encode($rows); ?>';
-  console.log(jsvar);
-  var div = document.getElementById('data');
-  div.innerHTML = jsvar;
+
+print_r ($produktionsbereiche);
+echo $produktionsbereiche[1];
+?> 
+<script>
+	
+	var rows = <?php echo json_encode($produktionsbereiche);  ?>;
+	rows.shift();
+	console.log(rows);
 </script>
 
 
