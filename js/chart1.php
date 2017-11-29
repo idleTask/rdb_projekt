@@ -120,13 +120,13 @@
             //sets button text to selected jahr
             jahr = ddButtons[i].innerHTML;
             dropdownMenu2.innerHTML = jahr;
-            //resets data und produktionsbereiche
+            //sets data
             updateData();
         }
     }
 
- //sortiert nach daten und gibt ein objekt zurück mit {"Produktionsbereich" => "123456"}     
-function sort (keys, daten){
+    //sortiert nach daten und gibt ein objekt zurück mit {"Produktionsbereich" => "123456"}     
+    function sort (keys, daten){
     var result = {};
     var length = keys.length;
     for(var n = length-1; n>=0; n--){
@@ -142,8 +142,8 @@ function sort (keys, daten){
         }
     }
     keys.forEach((key, i) => result[key] = parseInt(daten[i]));
-    return result;
-}        
+        return result;
+    }        
 
 
 
