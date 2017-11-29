@@ -13,9 +13,14 @@
     emissionen.shift();
     //default chart text
     var titleText = "Energieverbrauch in TJ";
-   //dropdownmenu buttons und dropdownmenu
-   var ddButtons = document.querySelectorAll('div.dropdown-menu button');
-   var dropdownMenu2 = document.getElementById("dropdownMenu2");
+    //dropdownmenu buttons und dropdownmenu
+    var ddButtons = document.querySelectorAll('div.dropdown-menu button');
+    var dropdownMenu2 = document.getElementById("dropdownMenu2");
+    //checkbox werte
+    var checkPH = document.getElementById("checkPH");
+    var checkCE = document.getElementById("checkCE");
+    //zeigt energie werte an
+    var energie = true;
 
     var data = [];
     var jahr;
@@ -63,36 +68,49 @@
             }
         });
     };
-    var energie = true;
+    checkPH.addEventListener('click', function(){
+            updateData();
+    });
+    checkCE.addEventListener('click', function(){
+            updateData();
+    });
+    function updateData(){
+        data = [];
+        produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
+        produktionsbereiche.shift();
+        if (energie){
+            for (let j = 0; j < energieverbräuche.length; j++){
+                data.push(energieverbräuche[j]["Jahr_" + jahr]);  
+            }
+        } else if (!energie){
+            for (let k = 0; k < emissionen.length; k++){
+                data.push(emissionen[k]["Jahr_" + jahr]);  
+            }
+        }
+        var result = sort(produktionsbereiche, data);
+
+        if(!checkPH.checked){
+            delete result['Private Haushalte\r'];
+        }
+        if(!checkCE.checked){
+            delete result['Energie und Dienstleistungen der Energieversorgung'];
+        }
+            
+        horizontalBarChartData.labels = Object.keys(result);
+        horizontalBarChartData.datasets[0].data = Object.values(result);
+        window.myHorizontalBar.update();  
+    }
     document.getElementById('option1').addEventListener('click', function() {
             energie = true;
             myHorizontalBar.options.title.text = "Energieverbrauch in TJ";
             horizontalBarChartData.datasets[0].label = "Energieverbrauch";
-            data = [];
-            produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
-            produktionsbereiche.shift();
-            for (let j = 0; j < energieverbräuche.length; j++){
-                    data.push(energieverbräuche[j]["Jahr_" + jahr]);  
-            }
-            var result = sort(produktionsbereiche, data);
-            horizontalBarChartData.labels = Object.keys(result);
-            horizontalBarChartData.datasets[0].data = Object.values(result);
-            window.myHorizontalBar.update();              
+            updateData();             
     });
     document.getElementById('option2').addEventListener('click', function() {
             energie = false;
             myHorizontalBar.options.title.text = "CO2-Emission in t";
             horizontalBarChartData.datasets[0].label = "CO2-Emission";
-            data = [];
-            produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
-            produktionsbereiche.shift();
-            for (let k = 0; k < emissionen.length; k++){
-                    data.push(emissionen[k]["Jahr_" + jahr]);  
-            }
-            var result = sort(produktionsbereiche, data);
-            horizontalBarChartData.labels = Object.keys(result);
-            horizontalBarChartData.datasets[0].data = Object.values(result);
-            window.myHorizontalBar.update();
+            updateData();
     });
         
     //dropdown buttons onclick function
@@ -103,30 +121,10 @@
             jahr = ddButtons[i].innerHTML;
             dropdownMenu2.innerHTML = jahr;
             //resets data und produktionsbereiche
-            data = [];
-            produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
-            produktionsbereiche.shift();
-            //checkt ob energie oder co2 angezeigt werden
-            if (energie){
-                for (let j = 0; j < energieverbräuche.length; j++){
-                    data.push(energieverbräuche[j]["Jahr_" + jahr]);  
-                }
-            } else if (!energie){
-                for (let k = 0; k < emissionen.length; k++){
-                    data.push(emissionen[k]["Jahr_" + jahr]);  
-                }
-            }
-            //sortiert produktionsbereiche und daten
-            var result = sort(produktionsbereiche, data);
-            //setzt sortierte labels 
-            horizontalBarChartData.labels = Object.keys(result);
-            //setzt sortierte daten
-            horizontalBarChartData.datasets[0].data = Object.values(result);
-            //updatet chart
-            window.myHorizontalBar.update();
+            updateData();
         }
     }
-        
+
  //sortiert nach daten und gibt ein objekt zurück mit {"Produktionsbereich" => "123456"}     
 function sort (keys, daten){
     var result = {};
