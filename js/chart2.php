@@ -35,6 +35,10 @@
     var gv = [];
     var test = [];
     var relEnergie = [];
+    var gesamtverbrauch2 = 0;
+    var gv2 = [];
+    var test2 = [];
+    var relCO2 = [];
     for(let j = 0; j < 20; j++){
         for (let i = 0; i < energieverbräuche.length; i++){
 
@@ -50,7 +54,22 @@
       test = [];
       gesamtverbrauch = 0;
     }
-console.log(relEnergie);
+
+    for(let j = 0; j < 20; j++){
+        for (let i = 0; i < emissionen.length; i++){
+
+        gesamtverbrauch2 += parseInt(emissionen[i]["Jahr_"+(1995+j)]);
+
+      }
+      gv2.push(gesamtverbrauch2);
+      for (let k = 0; k < emissionen.length; k++){
+
+        test2.push((parseFloat((emissionen[k]["Jahr_"+(1995+j)]))/gesamtverbrauch2)*100);
+      }
+      relCO2.push(test2);
+      test2 = [];
+      gesamtverbrauch2 = 0;
+    }
 
     function updateData1(){
         data1 = [];
@@ -65,19 +84,19 @@ console.log(relEnergie);
         }
         if (checkCo.checked){
             for (let k = 0; k < emissionen.length; k++){
-                data3.push(emissionen[produktionsbereich1id]['Jahr_'+(1995+k)]);  
+                data3.push(emissionen[produktionsbereich1id]['Jahr_'+(1995+k)]);
                 myLine.data.datasets[2].label = produktionsbereiche[produktionsbereich1id] + '(Co2)';
             }
-        } 
-        
+        }
+
         myLine.data.datasets[0].data = data1;
         myLine.data.datasets[2].data = data3;
-        window.myLine.update();  
+        window.myLine.update();
     }
     function updateData2(){
         data2 = [];
         data4 = [];
-        
+
         if (checkEn.checked){
             for (let j = 0; j < 20; j++){
                 data2.push(relEnergie[j][produktionsbereich2id]);
@@ -86,18 +105,18 @@ console.log(relEnergie);
         }
         if (checkCo.checked){
             for (let k = 0; k < emissionen.length; k++){
-                data4.push(emissionen[produktionsbereich2id]['Jahr_'+(1995+k)]);  
+                data4.push(emissionen[produktionsbereich2id]['Jahr_'+(1995+k)]);
                 myLine.data.datasets[3].label = produktionsbereiche[produktionsbereich2id] + '(Co2)';
             }
-        } 
-        
-        
+        }
+
+
         myLine.data.datasets[1].data = data2;
         myLine.data.datasets[3].data = data4;
-        window.myLine.update();  
+        window.myLine.update();
     }
 
- 
+
     checkEn.addEventListener('click', function(){
             updateData1();
             updateData2();
@@ -108,13 +127,13 @@ console.log(relEnergie);
             updateData2();
 
     });
-    //dropdown buttons onclick 
-    
+    //dropdown buttons onclick
+
 
 
 
  //dropdown buttons onclick
-    
+
 
     for (let i = 0; i < ddButtons.length; i++){
         ddButtons[i].id = i;
@@ -140,7 +159,7 @@ console.log(relEnergie);
     }
 
 
-        
+
 
 var config = {
             type: 'line',
