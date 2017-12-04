@@ -30,6 +30,27 @@
     var produktionsbereich2;
     var produktionsbereich2id;
 
+
+    var gesamtverbrauch = 0;
+    var gv = [];
+    var test = [];
+    var relEnergie = [];
+    for(let j = 0; j < 20; j++){
+        for (let i = 0; i < energieverbräuche.length; i++){
+
+        gesamtverbrauch += parseInt(energieverbräuche[i]["Jahr_"+(1995+j)]);
+
+      }
+      gv.push(gesamtverbrauch);
+      for (let k = 0; k < energieverbräuche.length; k++){
+
+        test.push((parseFloat((energieverbräuche[k]["Jahr_"+(1995+j)]))/gesamtverbrauch)*100);
+      }
+      relEnergie.push(test);
+      test = [];
+      gesamtverbrauch = 0;
+    }
+console.log(relEnergie);
     function updateData1(){
         data1 = [];
         data3 = [];
@@ -75,6 +96,7 @@
         window.myLine.update();  
     }
 
+ 
     checkEn.addEventListener('click', function(){
             updateData1();
             updateData2();
@@ -87,6 +109,12 @@
     });
     //dropdown buttons onclick 
     
+
+
+
+ //dropdown buttons onclick
+    
+
     for (let i = 0; i < ddButtons.length; i++){
         ddButtons[i].id = i;
         ddButtons[i].onclick = function(){
@@ -110,6 +138,8 @@
         }
     }
 
+
+        
 
 var config = {
             type: 'line',
@@ -145,7 +175,7 @@ var config = {
                     data: [],
                 }]
             },
-           
+
             options: {
                 responsive: true,
                 title:{
@@ -170,7 +200,7 @@ var config = {
             var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine = new Chart(ctx, config);
 
-            
+
 
         };
 
@@ -179,9 +209,8 @@ function createDropdown(produktionsbereiche){
 
     produktionsbereiche.forEach(function(element){
        div.innerHTML = div.innerHTML + "<button class='dropdown-item' type='button'>" + element + "</button>";
-       div2.innerHTML = div2.innerHTML + "<button class='dropdown-item' type='button'>" + element + "</button>";   
+       div2.innerHTML = div2.innerHTML + "<button class='dropdown-item' type='button'>" + element + "</button>";
     });
 }
 
 </script>
-

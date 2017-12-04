@@ -4,7 +4,7 @@ h1 {
 	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
 	font-variant: small-caps;
 	text-decoration: underline;
-	
+
 }
 
 .chart-container {
@@ -20,22 +20,22 @@ body {
 header{
 	margin-bottom:50px;
 	height: 7em;
-	
+
 }
 #dropdownMenu2{
-	
+
 	margin-top:  10px;
 }
 
 h2 {
-	
+
 	text-align: center;
 	color: black;
 	margin-top: 50px;
-	
-	
-	
-=======
+
+
+
+
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
