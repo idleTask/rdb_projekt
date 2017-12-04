@@ -17,7 +17,27 @@
     var ddButtons = document.querySelectorAll('div.dropdown-menu button');
     var dropdownMenu2 = document.getElementById("dropdownMenu2");
 
+    var gesamtverbrauch = 0;
+    var gv = [];
+    var test = [];
+    var relEnergie = [];
+    for(let j = 0; j < 20; j++){
 
+        for (let i = 0; i < energieverbräuche.length; i++){
+
+        gesamtverbrauch += parseInt(energieverbräuche[i]["Jahr_"+(1995+j)]);
+
+      }
+      gv.push(gesamtverbrauch);
+      for (let k = 0; k < energieverbräuche.length; k++){
+
+        test.push((parseFloat((energieverbräuche[k]["Jahr_"+(1995+j)]))/gesamtverbrauch)*100);
+      }
+      relEnergie.push(test);
+      test = [];
+      gesamtverbrauch = 0;
+    }
+console.log(relEnergie);
 
 var config = {
             type: 'line',

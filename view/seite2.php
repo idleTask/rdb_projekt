@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-	
+
 	<head>
-		
+
 		<title> Energieverbrauch und CO2-Emission in Deutschland</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,17 +29,17 @@
 
 
 
-			
-			
+
+
 <div id="auswahl">
-	
+
   		<label class="btn btn-primary">
     	<input type="checkbox" name="options" id="option1" autocomplete="off" checked data-toggle="toggle">Energieverbrauch
   		</label>
   		<label class="btn btn-primary">
    		<input type="checkbox" name="options" id="option2" autocomplete="off" data-toggle="toggle"> CO2-Emission
   		</label>
-	
+
 </div>
 
 
@@ -71,7 +71,7 @@
     <button class="dropdown-item" type="button">2014</button>
   </div>
 </div>
-		
+
 		<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Produktionsbereich 2
@@ -100,7 +100,7 @@
     <button class="dropdown-item" type="button">2014</button>
   </div>
 </div>
-		
+
 		</header>
     <div>
       <script src="..\dist\Chart.bundle.js"></script>
@@ -110,7 +110,7 @@
       <div >
         <canvas id="canvas"></canvas>
       </div>
-    <script src="..\js\chart2.js"></script>
+    <?php include "..\js\chart2.php" ?>
     </div>
 
 
@@ -119,7 +119,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="..\bootstrap\js\bootstrap.min.js"></script>
 	</body>
-	
-	
-</html>
 
+
+</html>
