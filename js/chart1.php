@@ -1,4 +1,4 @@
-<?php include "../model/model.php" ?>
+<?php include "../model/model1.php" ?>
 <?php include "../model/model2.php" ?>
 <?php include "../model/model3.php" ?>
 <script>
@@ -8,7 +8,7 @@
     //alle Energieverbräuche
     var energieverbräuche = <?php echo json_encode($energieverbräuche);  ?>;
     energieverbräuche.shift();
-    //todo: Co2Emission
+    // Co2Emission
     var emissionen = <?php echo json_encode($emissionen);  ?>;
     emissionen.shift();
     //default chart text

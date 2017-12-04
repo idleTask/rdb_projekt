@@ -19,8 +19,8 @@ if ($result->num_rows > 0) {
     // output data of each row
 	$rows = array();
     while($row = $result->fetch_assoc()) {
-		$rows[] = $row;
-    }
+		$rows[] = $row;	
+    }	
 } else {
     echo "0 results";
 }
@@ -33,11 +33,14 @@ $produktionsbereiche = array();
 foreach($rows as $result) {
 				//echo $result['Produktionsbereich'];
 				$produktionsbereiche[] = $result['Produktionsbereich'];
-}
+} 
 
 
 
-?>
+?> 
 <script>
-
+	
 </script>
+
+
+
