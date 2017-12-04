@@ -1,3 +1,24 @@
+<?php include "../model/model.php" ?>
+<?php include "../model/model2.php" ?>
+<?php include "../model/model3.php" ?>
+<script>
+    //alle Produktionsbereiche
+    var produktionsbereiche = <?php echo json_encode($produktionsbereiche);  ?>;
+    produktionsbereiche.shift();
+    //alle Energieverbräuche
+    var energieverbräuche = <?php echo json_encode($energieverbräuche);  ?>;
+    energieverbräuche.shift();
+    //todo: Co2Emission
+    var emissionen = <?php echo json_encode($emissionen);  ?>;
+    emissionen.shift();
+    //default chart text
+    var titleText = "Energieverbrauch in TJ";
+    //dropdownmenu buttons und dropdownmenu
+    var ddButtons = document.querySelectorAll('div.dropdown-menu button');
+    var dropdownMenu2 = document.getElementById("dropdownMenu2");
+
+
+
 var config = {
             type: 'line',
             data: {
@@ -40,6 +61,7 @@ var config = {
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine = new Chart(ctx, config);
+
             createDropdown(['hi','eins','zwei']);
 
         };
@@ -50,3 +72,9 @@ function createDropdown(produktionsbereiche){
         div.innerHTML = div.innerHTML + "<button class='dropdown-item' type='button'>" + produktionsbereiche[i] + "</button>";
     }
 }
+
+
+
+
+</script>
+
