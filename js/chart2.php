@@ -51,6 +51,7 @@
       gesamtverbrauch = 0;
     }
 console.log(relEnergie);
+
     function updateData1(){
         data1 = [];
         data3 = [];
@@ -58,7 +59,7 @@ console.log(relEnergie);
         myLine.data.datasets[2].label = "";
         if (checkEn.checked){
             for (let j = 0; j < 20; j++){
-                data1.push(relEnergieverbräuche[j][produktionsbereich1id]);
+                data1.push(relEnergie[j][produktionsbereich1id]);
                 myLine.data.datasets[0].label = produktionsbereiche[produktionsbereich1id] + '(Energie)';
             }
         }
@@ -79,7 +80,7 @@ console.log(relEnergie);
         
         if (checkEn.checked){
             for (let j = 0; j < 20; j++){
-                data2.push(relEnergieverbräuche[j][produktionsbereich2id]);
+                data2.push(relEnergie[j][produktionsbereich2id]);
                 myLine.data.datasets[1].label = produktionsbereiche[produktionsbereich2id] + '(Energie)';
             }
         }
@@ -186,10 +187,10 @@ var config = {
                     yAxes: [{
                         ticks: {
                             // the data minimum used for determining the ticks is Math.min(dataMin, suggestedMin)
-                            suggestedMin: 10,
+                            suggestedMin: 0,
 
                             // the data maximum used for determining the ticks is Math.max(dataMax, suggestedMax)
-                            suggestedMax: 50
+                            suggestedMax: 0.5
                         }
                     }]
                 }
