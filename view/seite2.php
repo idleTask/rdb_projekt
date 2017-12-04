@@ -34,41 +34,22 @@
 <div id="auswahl">
 	
   		<label class="btn btn-primary">
-    	<input type="checkbox" name="options" id="option1" autocomplete="off" checked data-toggle="toggle">Energieverbrauch
+    	<input type="checkbox" name="options" id="checkEn" autocomplete="off" checked data-toggle="toggle">Energieverbrauch
   		</label>
   		<label class="btn btn-primary">
-   		<input type="checkbox" name="options" id="option2" autocomplete="off" data-toggle="toggle"> CO2-Emission
+   		<input type="checkbox" name="options" id="checkCo" autocomplete="off" data-toggle="toggle"> CO2-Emission
   		</label>
 	
 </div>
 
 
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Produktionsbereich 1
   </button>
 
   <div  id = "divDropdown1" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">1995</button>
-    <button class="dropdown-item" type="button">1996</button>
-    <button class="dropdown-item" type="button">1997</button>
-    <button class="dropdown-item" type="button">1998</button>
-    <button class="dropdown-item" type="button">1999</button>
-    <button class="dropdown-item" type="button">2000</button>
-    <button class="dropdown-item" type="button">2001</button>
-    <button class="dropdown-item" type="button">2002</button>
-    <button class="dropdown-item" type="button">2003</button>
-    <button class="dropdown-item" type="button">2004</button>
-    <button class="dropdown-item" type="button">2005</button>
-    <button class="dropdown-item" type="button">2006</button>
-    <button class="dropdown-item" type="button">2007</button>
-    <button class="dropdown-item" type="button">2008</button>
-    <button class="dropdown-item" type="button">2009</button>
-    <button class="dropdown-item" type="button">2010</button>
-    <button class="dropdown-item" type="button">2011</button>
-    <button class="dropdown-item" type="button">2012</button>
-    <button class="dropdown-item" type="button">2013</button>
-    <button class="dropdown-item" type="button">2014</button>
+    
   </div>
 </div>
 		
@@ -77,27 +58,8 @@
     Produktionsbereich 2
   </button>
 
-  <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">1995</button>
-    <button class="dropdown-item" type="button">1996</button>
-    <button class="dropdown-item" type="button">1997</button>
-    <button class="dropdown-item" type="button">1998</button>
-    <button class="dropdown-item" type="button">1999</button>
-    <button class="dropdown-item" type="button">2000</button>
-    <button class="dropdown-item" type="button">2001</button>
-    <button class="dropdown-item" type="button">2002</button>
-    <button class="dropdown-item" type="button">2003</button>
-    <button class="dropdown-item" type="button">2004</button>
-    <button class="dropdown-item" type="button">2005</button>
-    <button class="dropdown-item" type="button">2006</button>
-    <button class="dropdown-item" type="button">2007</button>
-    <button class="dropdown-item" type="button">2008</button>
-    <button class="dropdown-item" type="button">2009</button>
-    <button class="dropdown-item" type="button">2010</button>
-    <button class="dropdown-item" type="button">2011</button>
-    <button class="dropdown-item" type="button">2012</button>
-    <button class="dropdown-item" type="button">2013</button>
-    <button class="dropdown-item" type="button">2014</button>
+  <div id="divDropdown2" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
+  
   </div>
 </div>
 		
@@ -107,10 +69,10 @@
       <script src="..\dist\Chart.js"></script>
       <script src="..\dist\Chart.min.js"></script>
       <script src="..\dist\Chart.bundle.min.js"></script>
-      <div >
+      <div class="chart-container">
         <canvas id="canvas"></canvas>
       </div>
-    <script src="..\js\chart2.js"></script>
+    <?php include "..\js\chart2.php" ?>
     </div>
 
 
