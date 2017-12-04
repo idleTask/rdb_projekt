@@ -16,13 +16,13 @@
 			<h1 > Energieverbrauch und CO2-Emission in Deutschland</h1>
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" href="..\index.html">Home</a>
+    <a id="test" class="nav-link active" href="..\index.html">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="seite1.php">Diagramm 1</a>
+    <a id="test" class="nav-link" href="seite1.php">Diagramm 1</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="seite2.php">Diagramm 2</a>
+    <a id="test" class="nav-link" href="seite2.php">Diagramm 2</a>
   </li>
 </ul>
 
@@ -45,22 +45,29 @@
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Produktionsbereich 1
+    1. Produktionsbereich
   </button>
 
   <div  id = "divDropdown1" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
     
   </div>
+  <button id="deleteBtn1" type="button" class="btn btn-secondary">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> X
+  </button>
 </div>
 
 	<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Produktionsbereich 2
+    2. Produktionsbereich
   </button>
 
   <div id="divDropdown2" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
-  
+    
   </div>
+  <button id="deleteBtn2" type="button" class="btn btn-secondary">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> X
+  </button>
+  
 </div>
 
 		</header>

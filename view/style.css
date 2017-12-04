@@ -6,10 +6,26 @@ h1 {
 	text-decoration: underline;
 
 }
+#nav{
+	color: red;
+	
+}
+#test{
+	color: black;
+	background-color: lightgrey;
+	
+	margin-bottom: 15px;
+	border-color: lightgrey;
+	border-style: solid;
+	border-radius: 1px;
+
+	
+}
+
 
 .chart-container {
   position: relative;
-  margin-top: 100px;
+  margin-top: 155px;
   height: 300vh;
   width: 80vw;
 }
@@ -27,6 +43,10 @@ header{
 	margin-top:  10px;
 }
 
+
+#deleteBtn2{
+	margin-top: 10px;
+}
 h2 {
 
 	text-align: center;

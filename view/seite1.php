@@ -17,17 +17,18 @@
   <body>
     <header>
       <h1 > Energieverbrauch und CO2-Emission in Deutschland</h1>
-<ul class="nav">
+<ul class="nav" id = "nav">
   <li class="nav-item">
-    <a class="nav-link active" href="..\index.html">Home</a>
+    <a id="test" class="nav-link active" href="..\index.html">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="seite1.php">Diagramm 1</a>
+    <a id="test" class="nav-link" href="seite1.php">Diagramm 1</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="seite2.php">Diagramm 2</a>
+    <a id="test" class="nav-link" href="seite2.php">Diagramm 2</a>
   </li>
 </ul>
+
 
 
 

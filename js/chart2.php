@@ -25,20 +25,25 @@
     //checkbox werte
     var checkEn = document.getElementById("checkEn");
     var checkCo = document.getElementById("checkCo");
+    var deleteBtn1 = document.getElementById("deleteBtn1");
+    var deleteBtn2 = document.getElementById("deleteBtn2");
     var produktionsbereich1;
-    var produktionsbereich1id;
+    var produktionsbereich1id = -1;
     var produktionsbereich2;
-    var produktionsbereich2id;
+    var produktionsbereich2id = -1;
 
 
     var gesamtverbrauch = 0;
     var gv = [];
     var test = [];
-    var relEnergie = [];
+    var relEnergie = getRelEnergie();
     var gesamtverbrauch2 = 0;
     var gv2 = [];
     var test2 = [];
-    var relCO2 = [];
+    var relCO2 = getRelCo2();
+
+function getRelEnergie(){
+    var relEnergie = [];
     for(let j = 0; j < 20; j++){
         for (let i = 0; i < energieverbräuche.length; i++){
 
@@ -54,7 +59,10 @@
       test = [];
       gesamtverbrauch = 0;
     }
-
+    return relEnergie;
+}
+function getRelCo2(){
+    var relCO2 = [];
     for(let j = 0; j < 20; j++){
         for (let i = 0; i < emissionen.length; i++){
 
@@ -70,21 +78,26 @@
       test2 = [];
       gesamtverbrauch2 = 0;
     }
+    return relCO2;
+}
+
+    
 
     function updateData1(){
+
         data1 = [];
         data3 = [];
         myLine.data.datasets[0].label = "";
         myLine.data.datasets[2].label = "";
-        if (checkEn.checked){
+        if (checkEn.checked && produktionsbereich1id!=-1){
             for (let j = 0; j < 20; j++){
                 data1.push(relEnergie[j][produktionsbereich1id]);
                 myLine.data.datasets[0].label = produktionsbereiche[produktionsbereich1id] + '(Energie)';
             }
         }
-        if (checkCo.checked){
-            for (let k = 0; k < emissionen.length; k++){
-                data3.push(emissionen[produktionsbereich1id]['Jahr_'+(1995+k)]);
+        if (checkCo.checked && produktionsbereich1id!=-1){
+            for (let x = 0; x < 20; x++){          
+                data3.push(relCO2[x][produktionsbereich1id]);
                 myLine.data.datasets[2].label = produktionsbereiche[produktionsbereich1id] + '(Co2)';
             }
         }
@@ -96,16 +109,18 @@
     function updateData2(){
         data2 = [];
         data4 = [];
+        myLine.data.datasets[1].label = "";
+        myLine.data.datasets[3].label = "";
 
-        if (checkEn.checked){
+        if (checkEn.checked && produktionsbereich2id!=-1){
             for (let j = 0; j < 20; j++){
                 data2.push(relEnergie[j][produktionsbereich2id]);
                 myLine.data.datasets[1].label = produktionsbereiche[produktionsbereich2id] + '(Energie)';
             }
         }
-        if (checkCo.checked){
-            for (let k = 0; k < emissionen.length; k++){
-                data4.push(emissionen[produktionsbereich2id]['Jahr_'+(1995+k)]);
+        if (checkCo.checked && produktionsbereich2id!=-1){
+            for (let k = 0; k < 20; k++){
+                data4.push(relCO2[k][produktionsbereich2id]);
                 myLine.data.datasets[3].label = produktionsbereiche[produktionsbereich2id] + '(Co2)';
             }
         }
@@ -158,7 +173,24 @@
         }
     }
 
-
+    deleteBtn2.addEventListener('click', function(){
+        produktionsbereich2id = -1;
+        dropdownMenu2.innerHTML = "2. Produktionsbereich";
+        myLine.data.datasets[1].data = [];
+        myLine.data.datasets[1].label = [];
+        myLine.data.datasets[3].data = [];
+        myLine.data.datasets[3].label = [];
+        window.myLine.update();
+    });
+    deleteBtn1.addEventListener('click', function(){
+        produktionsbereich1id = -1;
+        dropdownMenu1.innerHTML = "1. Produktionsbereich";
+        myLine.data.datasets[0].data = [];
+        myLine.data.datasets[0].label = [];
+        myLine.data.datasets[2].data = [];
+        myLine.data.datasets[2].label = [];
+        window.myLine.update();
+    });
 
 
 var config = {
@@ -167,8 +199,8 @@ var config = {
                 labels: ["1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014"],
                 datasets: [{
                     label: "1. Produktionsbereich Energie",
-                    backgroundColor: 'red',
-                    borderColor: 'red',
+                    backgroundColor: 'green',
+                    borderColor: 'green',
                     data: [],
                     fill: false,
                 }, {
@@ -182,8 +214,8 @@ var config = {
                     label: "1. Produktionsbereich Co2",
                     legend: false,
                     fill: false,
-                    backgroundColor: 'orange',
-                    borderColor: 'orange',
+                    backgroundColor: 'lightgreen',
+                    borderColor: 'lightgreen',
                     data: [],
                 },
                 {
@@ -200,7 +232,7 @@ var config = {
                 responsive: true,
                 title:{
                     display:true,
-                    text:'Vergleich der Produktionsbereiche'
+                    text:'Vergleich der Produktionsbereiche in %'
                 },
                 scales: {
                     yAxes: [{
