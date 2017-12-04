@@ -48,7 +48,7 @@
     Produktionsbereich 1
   </button>
 
-  <div  class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
+  <div  id = "divDropdown1" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu2">
     <button class="dropdown-item" type="button">1995</button>
     <button class="dropdown-item" type="button">1996</button>
     <button class="dropdown-item" type="button">1997</button>
@@ -72,7 +72,7 @@
   </div>
 </div>
 		
-		<div class="dropdown">
+<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Produktionsbereich 2
   </button>

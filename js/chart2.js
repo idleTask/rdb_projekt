@@ -16,6 +16,7 @@ var config = {
                     data: [18, 33, 22, 19, 11, 39, 30],
                 }]
             },
+           
             options: {
                 responsive: true,
                 title:{
@@ -39,4 +40,13 @@ var config = {
         window.onload = function() {
             var ctx = document.getElementById("canvas").getContext("2d");
             window.myLine = new Chart(ctx, config);
+            createDropdown(['hi','eins','zwei']);
+
         };
+
+function createDropdown(produktionsbereiche){
+    var div = document.getElementById('divDropdown1');
+    for (let i = 0; i < produktionsbereiche.length; i++){
+        div.innerHTML = div.innerHTML + "<button class='dropdown-item' type='button'>" + produktionsbereiche[i] + "</button>";
+    }
+}
